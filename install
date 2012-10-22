@@ -1,0 +1,33 @@
+#!/bin/bash
+if [ "$(id -u)" != "0" ] ; then
+	echo "This installation must be done as root."
+	exit 1
+fi
+
+echo "Compiling Fjoin.."
+gcc -c -Wall -Werror -fpic libfjoin.c
+if [ "$?" != "0" ]; then
+	echo "An error occurred"
+	exit 1
+fi
+gcc -shared -o libfjoin.so libfjoin.o 
+if [ "$?" != "0" ]; then
+	echo "An error occurred"
+	exit 1
+fi
+gcc -L./ -Wall -o fjoin fjoin.c -lfjoin
+if [ "$?" != "0" ]; then
+	echo "An error occurred"
+	exit 1
+fi
+
+echo "Compilation completed, installing.."
+cp ./fjoin /usr/local/bin
+cp ./libfjoin.so /usr/local/lib
+ldconfig
+
+#cleaning
+rm libfjoin.o 2>/dev/null
+
+echo "Installaton complete."
+

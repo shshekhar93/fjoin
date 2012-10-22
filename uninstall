@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ "$(id -u)" != "0" ] ; then
+	echo "This installation must be done as root."
+	exit 1
+fi
+
+rm /usr/local/bin/fjoin 2>/dev/null
+rm /usr/local/lib/libfjoin.so 2>/dev/null
+
+echo "program uninstalled.";

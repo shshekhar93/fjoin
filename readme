@@ -1,0 +1,21 @@
+This is the first public release version of fjoin software. The software is used for splitting of a large file into smaller ones, or conversely joining smaller files to larger one. The general naming convention followed for splitted file is 
+<original_filename>.xxx
+xxx represents a number, starting from 001 onwards.
+
+Installation  :
+---------------
+To install this program
+1. Make the 'install' script executable by using the command:
+	chmod +x install
+2. execute the 'install' script
+	./install
+
+Uninstallation  :
+-----------------
+To uninstall this program
+1. Make the 'uninstall' script executable by using:
+	chmod +x uninstall
+2. Execute the 'uninstall' script
+	./uninstall
+
+
